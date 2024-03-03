@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .progress {
+        width:300px;
+        height: 10px;
+        background-color: transparent;
+        position: relative;
+        background-color: black;
+    }
+    #bar {
+        width:30px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        right:0;
+        top:0;
+        bottom:0;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="progress">
+        <div id="bar"></div>
+    </div>
+
+<script>
+var i = 0;
+function goFunction() {
+  if (i == 0) {
+    i = 1;
+    var element = document.getElementById("bar");
+    var width = 1;
+    var id = setInterval(myFunction, 100);
+    function myFunction() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        element.style.width = width + "%"
+      }
+    }
+  }
+}
+goFunction()
+</script>
+    
+</body>
+</html>
